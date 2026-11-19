@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
+  <h1>LEONIDA <span>LEDGER</span></h1>
+  <p class="tagline">Every one of the 55 trophies, with a cited guide, a checklist that remembers,
+  and a roadmap to the platinum — all offline, all in your browser.</p>
+  <dl class="facts">
+    <div><dt>Trophies</dt><dd>55</dd></div>
+    <div><dt>Platinum</dt><dd>1</dd></div>
+    <div><dt>Gold</dt><dd>2</dd></div>
+    <div><dt>Silver</dt><dd>6</dd></div>
+    <div><dt>Bronze</dt><dd>46</dd></div>
+    <div><dt>Hidden</dt><dd>28</dd></div>
+    <div><dt>Online</dt><dd>0</dd></div>
+    <div><dt>Platinum time</dt><dd>~200 h</dd></div>
+    <div><dt>Missable</dt><dd>1</dd></div>
+  </dl>
+</header>
+
+<main>
+  <section class="panel progress-panel" id="progress" aria-label="Your progress">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Platinum progress ring">
+        <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+        <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="52"></circle>
+      </svg>
+      <div class="ring-label"><strong id="earnedCount">0</strong><span>/ 55 earned</span></div>
+    </div>
+    <div class="progress-body">
+      <h2>Your road to the platinum</h2>
+      <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+      <p class="grade-line" id="gradeLine">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+      <p class="progress-note" id="progressNote">Tick trophies off as you earn them. Progress, notes and counters are saved in this browser only — nothing leaves your machine.</p>
+      <div class="actions">
+        <button id="exportBtn" type="button">Export progress</button>
+        <button id="importBtn" type="button">Import progress</button>
+        <button id="resetBtn" type="button" class="danger">Reset all</button>
+        <input id="importFile" type="file" accept=".json,application/json" hidden>
+      </div>
+    </div>
+  </section>
+
+  <section class="toolbar" aria-label="Find and filter trophies">
+    <label class="search-box">Search
+      <input id="search" type="search" placeholder="Search name, guide, mission…" autocomplete="off">
+    </label>
+    <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+      <button type="button" data-kind="all" class="chip on">All 55</button>
+      <button type="button" data-kind="story" class="chip">Story</button>
+      <button type="button" data-kind="missable" class="chip">Missable</button>
+      <button type="button" data-kind="collectibles" class="chip">Collectibles</button>
+      <button type="button" data-kind="activities" class="chip">Activities</button>
+      <button type="button" data-kind="side" class="chip">Side quests</button>
+      <button type="button" data-kind="robbery" class="chip">Robberies</button>
+      <button type="button" data-kind="online" class="chip">Online</button>
+    </div>
+    <label class="grade-pick">Grade
+      <select id="gradeFilter">
+        <option value="all">Any grade</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="toggle"><input id="hideEarned" type="checkbox"> Hide earned</label>
+    <label class="toggle"><input id="spoilerToggle" type="checkbox" checked> Hide story spoilers</label>
+    <p class="keys">Keys: <kbd>/</kbd> search &middot; <kbd>R</kbd> roadmap &middot; <kbd>M</kbd> missables &middot; <kbd>S</kbd> spoilers &middot; <kbd>H</kbd> hide earned</p>
+  </section>
+
+  <section class="panel" id="nextup" aria-label="Next up">
+    <h2>Next up — do these first</h2>
+    <p class="section-note">The next unearned trophies in roadmap order, with why each one matters now.</p>
+    <ol class="next-list" id="nextList"></ol>
+  </section>
+
+  <section class="panel" id="roadmap" aria-label="Platinum roadmap">
+    <h2>Platinum roadmap</h2>
+    <p class="section-note">Seven stages, in the order to earn them. Story first, then the free-roam cleanup,
+    then the platinum. Stage progress fills as you tick trophies off.</p>
+    <p class="section-note" id="roadmapCount"></p>
+    <ol class="stages" id="stageList"></ol>
+  </section>
+
+  <section id="checklist" aria-label="Trophy checklist">
+    <h2 class="list-heading">Checklist <span id="shownCount"></span></h2>
+    <p class="section-note">Names and descriptions are shown as PlayStation publishes them. Every guide is written
+    for this ledger and cites its source beside it — a cited guide beats an uncited one.</p>
+    <div class="cards" id="cardList"></div>
+    <p class="empty" id="emptyMsg" hidden>No trophies match this filter. Clear the search or pick another kind.</p>
+  </section>
+
+  <section class="panel missables" id="missables" aria-label="Missable trophies">
+    <h2>Missables — read this before Chapter 1 ends</h2>
+    <p><strong>Only one trophy is reported as possibly missable: Positive Mental Attitude.</strong>
+    In the morning after the Chapter 1 mission <em>Down to Earth</em>, talk to Lucia in the kitchen,
+    follow her to the balcony and choose <em>Accept</em> when she offers to show you how to meditate.
+    That balcony meditation is only available in Chapter 1, and it is still unconfirmed whether the
+    trophy actually requires it — so do it while you can, and keep a manual save from Chapter 1.</p>
+    <p>Everything else on the list can be finished in free-roam after the story. There is no mission
+    replay, so keep a manual save at the start and end of each chapter (15 manual slots plus one
+    autosave) and rotate the remaining slots for free-roam cleanup. Some optional missions and
+    quest-givers disappear for a while during the story, but every trophy-related character comes
+    back later. Cheats disable trophies and saving — do not use them on a platinum run.</p>
+    <p class="source-line">Source: PowerPyx — GTA 6 Trophy Guide &amp; Roadmap (roadmap, Step 1). The five trophies
+    marked <em>unconfirmed</em> in this guide had no verified unlock method in any community guide at launch.</p>
+  </section>
+
+  <section class="panel sources" id="sources" aria-label="Sources">
+    <h2>Sources &amp; notes</h2>
+    <ul>
+      <li><a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a> — step-by-step facts for nearly every trophy, including the meditation warning, counts and quest chains.</li>
+      <li><a href="https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/">EGamers — GTA 6 Trophy List</a> — the 27 visible / 28 hidden split and the five unconfirmed trophies.</li>
+      <li><a href="https://outputlag.com/guides/gta-6-trophy-list/">Output Lag — GTA 6 Trophy List</a> — the visible and hidden lists side by side.</li>
+      <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — Grand Theft Auto VI Trophies</a> — the official list as published.</li>
+      <li><a href="https://www.igrandtheftauto.com/gta6/guides/trophies-and-achievements">IGTA — GTA VI Trophies &amp; Achievements</a> — secret-trophy notes.</li>
+    </ul>
+    <p class="fineprint">Unofficial fan guide, not affiliated with Rockstar Games. No Rockstar logo, artwork or
+    game screenshots are used; the look is our own. Trophy names and descriptions are reproduced as
+    PlayStation publishes them; every guide is written for this entry, in our own words. This app runs
+    fully offline: it loads only its own files and stores your progress in this browser's localStorage.</p>
+  </section>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
